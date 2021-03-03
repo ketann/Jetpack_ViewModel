@@ -2,26 +2,28 @@ package com.example.jetpack_viewmodel;
 
 import android.util.Log;
 
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import java.util.Random;
 
 public class MainActivityViewModel extends ViewModel {
     private String TAG = this.getClass().getSimpleName();
-    private String randomNumber;
+    private MutableLiveData<String> randomNumber;
 
-    public String getNumber() {
+    public MutableLiveData<String> getNumber() {
         Log.i(TAG, "Get Number");
         if (randomNumber == null) {
+            randomNumber =  new MutableLiveData<>();
             generateNumber();
         }
         return randomNumber;
     }
 
-    private void generateNumber() {
+    public void generateNumber() {
         Log.i(TAG, "Generate a Number");
         Random random = new Random();
-        randomNumber = "Number" + (random.nextInt(100 - 1) + 1);
+        randomNumber.setValue("Number : " + (random.nextInt(100 - 1) + 1));
     }
 
     @Override
