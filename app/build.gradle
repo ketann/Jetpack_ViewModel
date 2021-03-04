@@ -37,5 +37,6 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation "androidx.coordinatorlayout:coordinatorlayout:1.1.0"
 
+    // below dependencies for lifecycle component, view models, live data
     implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
 }
